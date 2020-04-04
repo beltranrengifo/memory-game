@@ -4,7 +4,7 @@
   "description": "A light foundation for your next frontend project based on webpack.",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config.prod.js --colors",
-    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
+    "serve": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,12 @@
     "cross-env": "^7.0.2",
     "css-loader": "^3.4.2",
     "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
     "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "file-loader": "^5.1.0",
     "html-webpack-plugin": "^4.0.0-beta.11",
     "mini-css-extract-plugin": "^0.9.0",

@@ -1,0 +1,19 @@
+// @import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap');
+// $--main-font: 'Playfair Display', serif;
+$--main-font: 'Baloo Da 2', cursive;
+$--font-size: 16px;
+
+$--color-1: #173f5f;
+$--color-2: #20639b;
+$--color-3: #3caea3;
+$--color-4: #f6d55c;
+$--color-5: #ed553b;
+$--color-6: #1414144d;
+
+$--header-height: 100px;
+$--main-height: calc(100vh - #{$--header-height});
+
+$--grid-gap: 12px;
+
+$--card-shadow: 0px 0px 6px -2px rgba(0, 0, 0, 0.5);

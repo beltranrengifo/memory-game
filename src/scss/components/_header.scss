@@ -1,0 +1,21 @@
+.header {
+  text-align: center;
+  padding: 32px 32px 0;
+  height: $--header-height;
+  &__title {
+    font-weight: 100;
+    font-size: 2rem;
+    position: relative;
+    padding-bottom: 24px;
+    &:after {
+      content: '';
+      width: 120px;
+      height: 2px;
+      background-color: $--color-3;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

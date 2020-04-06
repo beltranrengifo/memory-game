@@ -1,14 +1,17 @@
 {
-  "name": "webpack-starter",
+  "name": "memory-game",
   "version": "1.0.0",
-  "description": "A light foundation for your next frontend project based on webpack.",
+  "description": "Webpack based, Javascript ES6/ES7 small memory game.",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config.prod.js --colors",
-    "serve": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
+    "serve": "webpack-dev-server --config webpack/webpack.config.dev.js",
+    "unit": "jest --coverage",
+    "unit:only": "jest",
+    "unit:watch": "jest --watch --coverage"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wbkd/webpack-starter.git"
+    "url": "git+https://github.com/beltranrengifo/onesait-memory-game.git"
   },
   "keywords": [
     "webpack",
@@ -18,16 +21,17 @@
     "javascript",
     "webdev"
   ],
-  "author": "webkid.io",
+  "author": "beltranrengifo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wbkd/webpack-starter/issues"
+    "url": "https://github.com/beltranrengifo/onesait-memory-game.git"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.9.0",
+    "babel-jest": "^25.2.6",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
@@ -42,6 +46,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "file-loader": "^5.1.0",
     "html-webpack-plugin": "^4.0.0-beta.11",
+    "jest": "^25.2.7",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
@@ -53,6 +58,10 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
-    "core-js": "^3.6.4"
+    "@fortawesome/fontawesome-pro": "^5.13.0",
+    "core-js": "^3.6.4",
+    "eslint-plugin-jest": "^23.8.2",
+    "lodash": "^4.17.15",
+    "reset-css": "^5.0.1"
   }
 }

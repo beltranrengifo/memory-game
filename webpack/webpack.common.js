@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 const Path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -5,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: Path.resolve(__dirname, '../src/scripts/index.js')
+    app: Path.resolve(__dirname, '../src/js/main.js')
   },
   output: {
     path: Path.join(__dirname, '../build'),
@@ -28,7 +29,8 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      '~': Path.resolve(__dirname, '../src')
+      '~': Path.resolve(__dirname, '../src'),
+      '@': Path.resolve(__dirname, '../src')
     }
   },
   module: {

@@ -1,5 +1,5 @@
 // @import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Baloo+Da+2:400,700&display=swap');
 // $--main-font: 'Playfair Display', serif;
 $--main-font: 'Baloo Da 2', cursive;
 $--font-size: 16px;
@@ -10,10 +10,14 @@ $--color-3: #3caea3;
 $--color-4: #f6d55c;
 $--color-5: #ed553b;
 $--color-6: #1414144d;
+$--color-white: white;
 
-$--header-height: 100px;
+$--header-height: 64px;
 $--main-height: calc(100vh - #{$--header-height});
 
 $--grid-gap: 12px;
 
-$--card-shadow: 0px 0px 6px -2px rgba(0, 0, 0, 0.5);
+$--card-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 0.6);
+$--card-shadow-hover: 0px 0px 10px -1px rgba(0, 0, 0, 0.6);
+
+$--default-transition: all .3s ease-out;

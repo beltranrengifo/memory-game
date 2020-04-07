@@ -6,4 +6,9 @@ body {
   font-family: $--main-font;
   color: $--color-1;
   font-size: $--font-size;
+  opacity: 1;
+  transition: opacity .4s ease-in;
+  &.show-results {
+    opacity: .4;
+  }
 }

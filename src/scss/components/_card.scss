@@ -1,22 +1,100 @@
 .card {
+  $--self: &;
   position: relative;
   box-shadow: $--card-shadow;
   padding: 12px;
   border-radius: 4px;
-  &:before {
-    position: absolute;
-    content: attr(brand) '';
-  }
+  background-color: $--color-white;
+  cursor: pointer;
+  transition: $--default-transition;
+  border: 1px solid transparent;
+  perspective: 1000px;
   &__wrap {
+    transform-style: preserve-3d;
+    transition: transform .3s;
+    height: 100%;
+    position: relative;
+  }
+  &__front,
+  &__back {
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 4px;
     height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    &:before,
+    &:after {
+      position: absolute;
+      content: attr(brand-display) '';
+      text-transform: capitalize;
+      font-size: 12px;
+      top: 8px;
+      left: 8px;
+      font-weight: 700;
+      color: $--color-2;
+    }
+    &:after {
+      left: initial;
+      top: initial;
+      right: 8px;
+      bottom: 8px;
+    }
+  }
+  &__front {
     background-color: $--color-4;
+    transform: rotateY(180deg);
+  }
+  &__back {
+    background-color: $--color-2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &:before,
+    &:after {
+      content: 'memory';
+      color: $--color-4;
+      text-transform: none;
+      font-weight: 400;
+    }
+    &:after {
+      content: 'game';
+    }
   }
   &__brand {
     color: $--color-2;
     font-size: 7vw;
   }
+  &__onesait {
+    svg {
+      fill: $--color-4;
+      width: 75px;
+    }
+  }
+  &:hover {
+    box-shadow: $--card-shadow-hover;
+  }
+  &.visible,
+  &.blocked {
+    box-shadow: none;
+    border-color: fade-out($--color-1, .9);
+    z-index: 9;
+    position: relative;
+    cursor: auto;
+    #{$--self}__wrap {
+      transform: rotateY(180deg);
+    }
+    #{$--self}__back {
+      &:before,
+      &:after {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.animated.delay-sm {
+  -webkit-animation-delay: .4s;
+  animation-delay: .4s;
 }

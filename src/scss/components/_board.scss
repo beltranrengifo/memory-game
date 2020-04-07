@@ -1,12 +1,14 @@
 .main {
   &__board {
+    padding-bottom: 2rem;
     min-height: $--main-height;
-    padding: 24px;
     display: grid;
     grid-gap: $--grid-gap;
     width: 1280px;
     max-width: 100%;
     margin: 0 auto;
+    &--8,
+    &--12,
     &--16 {
       grid-template-columns: repeat(4, 1fr);
     }
@@ -15,6 +17,9 @@
     }
     &--24 {
       grid-template-columns: repeat(6, 1fr);
+    }
+    &--locked {
+      pointer-events: none;
     }
   }
 }

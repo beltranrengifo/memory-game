@@ -7,9 +7,14 @@ export default class Board {
     this.game = game
     this.level = game.config.level
     this.domElement = document.getElementById(game.config.element)
+    this.headerInfoElement = document.querySelector('.header__info')
+    this.attemptsElement = null
+    this.achievementsElement = null
     this.cards = this.generateCards()
     this.resetBoard()
     this.drawBoard()
+    this.createAttemptsBox()
+    this.createAchievementsBox()
   }
 
   generateCards () {
@@ -26,9 +31,44 @@ export default class Board {
   drawBoard () {
     this.cards.forEach(card => {
       if (!this.domElement) return
-      const cardElement = new Card(card, this.game.cardClickHandler)
+      const cardElement = new Card(card, this.game)
       this.domElement.appendChild(cardElement.generateCard())
       this.domElement.classList.add(`main__board--${this.cards.length}`)
     })
+  }
+
+  createAttemptsBox () {
+    this.attemptsElement = document.createElement('div')
+    this.attemptsElement.id = 'attempts'
+    this.attemptsElement.classList.add('header__attempts')
+    this.headerInfoElement.appendChild(this.attemptsElement)
+  }
+
+  createAchievementsBox () {
+    this.achievementsElement = document.createElement('div')
+    this.achievementsElement.id = 'achievements'
+    this.achievementsElement.classList.add('header__achievements')
+    this.headerInfoElement.appendChild(this.achievementsElement)
+  }
+
+  setAttempts (attempts) {
+    this.attemptsElement.innerHTML = attempts
+  }
+
+  setAchievements (achievements) {
+    this.achievementsElement.innerHTML = achievements
+  }
+
+  lockBoard () {
+    this.domElement.classList.add('main__board--locked')
+  }
+
+  unlockBoard () {
+    setTimeout(() => this.domElement.classList.remove('main__board--locked'), this.game.defaultDelay)
+  }
+
+  boardFinished () {
+    this.domElement.classList.add('animated', 'flash', 'delay-1s')
+    setTimeout(() => document.querySelector('body').classList.add('show-results'), 2500)
   }
 }

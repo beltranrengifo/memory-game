@@ -26,6 +26,17 @@ npm run build
 yarn build
 ```
 
+### Unit testing with Jest
+
+```
+npm run unit
+yarn unit
+npm run unit:only
+yarn unit:only
+npm run unit:watch
+yarn unit:watch
+```
+
 ### Features:
 
 * ES6 Support via [babel](https://babeljs.io/) (v7)

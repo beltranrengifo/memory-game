@@ -1,6 +1,6 @@
 import Game from '../js/classes/Game.js'
 
-describe('Main', () => {
+describe('Main script', () => {
   let gameConfig
   beforeEach(() => {
     gameConfig = {
@@ -8,12 +8,9 @@ describe('Main', () => {
       level: 6
     }
   })
-  test('Onload should have been called', () => {
-    global.onload = jest.fn()
-    global.onload()
-    expect(global.onload).toHaveBeenCalled()
+  test('Game should be defined', () => {
+    expect(Game).toBeDefined()
   })
-
   test('New Game should be defined', () => {
     const game = new Game(gameConfig)
     expect(game).toBeDefined()

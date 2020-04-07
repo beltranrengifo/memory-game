@@ -7,16 +7,32 @@ describe('Board', () => {
   let board
   beforeEach(() => {
     gameConfig = {
-      element: '<div id="main-board" />',
+      element: 'main-board',
       level: 6
     }
     game = new Game(gameConfig)
-    // eslint-disable-next-line no-unused-vars
     board = new Board(game)
+    document.body.innerHTML = `
+      <div class="header__info" />
+      <div id="main-board" />
+    `
   })
 
-  test('Create Board', () => {
+  test('Board is a function', () => {
     expect(typeof Board).toBe('function')
+  })
+
+  test('Board is defined', () => {
+    expect(Board).toBeDefined()
+  })
+
+  test('Game is defined in Board', () => {
+    expect(board.game).toBeDefined()
+  })
+
+  test('Reset the DOM element', () => {
+    board.resetBoard()
+    expect(board.domElement.innerHTML).toBe('')
   })
 
   test('Icons should have the right length', () => {
@@ -24,11 +40,19 @@ describe('Board', () => {
     expect(brands).toHaveLength((board.level * 2) * 2)
   })
 
-  test('Reset the DOM element', () => {
-    board.domElement = document.createElement('div')
-    board.domElement.appendChild = document.createElement('div')
-    board.resetBoard()
-    expect(board.domElement.innerHTML).toBe('')
+  test('lockBoard should add the right class', () => {
+    board.lockBoard()
+    expect(board.domElement.classList.contains('main__board--locked')).toBeTruthy()
   })
-  // test('Create the DOM element', () => {})
+
+  test('unlockBoard should remove the right class', () => {
+    board.lockBoard()
+    board.unlockBoard()
+    setTimeout(() => expect(board.domElement.classList.contains('main__board--locked')).toBeFalsy(), 0)
+  })
+
+  test('boardFinished should add the right classes', () => {
+    board.boardFinished()
+    expect(board.domElement.classList.contains('animated', 'flash', 'delay-1s')).toBeTruthy()
+  })
 })

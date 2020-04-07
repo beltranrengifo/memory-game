@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card Card generates DOM element and matches 1`] = `
-<div
+<article
   brand="twitter"
   class="card"
 >
@@ -65,5 +65,5 @@ exports[`Card Card generates DOM element and matches 1`] = `
       </span>
     </div>
   </div>
-</div>
+</article>
 `;

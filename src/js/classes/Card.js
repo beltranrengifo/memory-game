@@ -5,10 +5,11 @@ export default class Card {
     this.name = name
     this.game = game
     this.domElement = null
+    this.clickHandler = this.game.cardClickHandler
   }
 
   generateCard () {
-    this.domElement = document.createElement('div')
+    this.domElement = document.createElement('article')
     this.domElement.classList.add('card')
     this.domElement.setAttribute('brand', this.name)
 
@@ -40,6 +41,6 @@ export default class Card {
   }
 
   setListener () {
-    this.domElement.addEventListener('click', () => this.game.cardClickHandler(event, this.name), false)
+    this.domElement.addEventListener('click', event => this.clickHandler.call(this.game, event, this.name), false)
   }
 }

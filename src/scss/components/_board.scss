@@ -1,7 +1,7 @@
 .main {
   &__board {
     padding-bottom: 2rem;
-    min-height: $--main-height;
+    height: $--main-height;
     display: grid;
     grid-gap: $--grid-gap;
     width: 1280px;
@@ -11,6 +11,9 @@
     &--12,
     &--16 {
       grid-template-columns: repeat(4, 1fr);
+    }
+    &--8 {
+      max-height: 850px;
     }
     &--20 {
       grid-template-columns: repeat(5, 1fr);

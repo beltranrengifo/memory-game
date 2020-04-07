@@ -10,7 +10,9 @@ module.exports = {
     '^.+\\.js$': 'babel-jest'
   },
   testRegex: '\\.spec\\.js$',
-  testPathIgnorePatterns: ['ignore'],
+  testPathIgnorePatterns: [
+    '<rootDir>/js/lib/'
+  ],
   coverageDirectory: path.resolve(__dirname, 'reports/unit/coverage'),
   collectCoverageFrom: [
     '**/*.js',

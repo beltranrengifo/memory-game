@@ -38,6 +38,7 @@ export default class Board {
   }
 
   createAttemptsBox () {
+    if (!this.headerInfoElement) return
     this.attemptsElement = document.createElement('div')
     this.attemptsElement.id = 'attempts'
     this.attemptsElement.classList.add('header__attempts')
@@ -45,6 +46,7 @@ export default class Board {
   }
 
   createAchievementsBox () {
+    if (!this.headerInfoElement) return
     this.achievementsElement = document.createElement('div')
     this.achievementsElement.id = 'achievements'
     this.achievementsElement.classList.add('header__achievements')
@@ -52,10 +54,12 @@ export default class Board {
   }
 
   setAttempts (attempts) {
+    if (!this.attemptsElement) return
     this.attemptsElement.innerHTML = attempts
   }
 
   setAchievements (achievements) {
+    if (!this.achievementsElement) return
     this.achievementsElement.innerHTML = achievements
   }
 

@@ -1,11 +1,19 @@
 import Card from '@/js/classes/Card'
+import Game from '@/js/classes/Game'
 
 describe('Card', () => {
   let card
   let cardElement
+  let gameConfig
+  let game
 
   beforeEach(() => {
-    card = new Card('twitter', jest.fn)
+    gameConfig = {
+      element: 'main-board',
+      level: 6
+    }
+    game = new Game(gameConfig)
+    card = new Card('twitter', game)
     cardElement = card.generateCard()
   })
 

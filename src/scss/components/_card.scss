@@ -81,6 +81,7 @@
     border-color: fade-out($--color-1, .9);
     z-index: 9;
     position: relative;
+    pointer-events: none;
     cursor: auto;
     #{$--self}__wrap {
       transform: rotateY(180deg);

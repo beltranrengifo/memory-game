@@ -8,7 +8,32 @@ body {
   font-size: $--font-size;
   opacity: 1;
   transition: opacity .4s ease-in;
-  &.show-results {
-    opacity: .4;
+  &.show-results {}
+}
+
+input,
+button {
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid $--color-2;
+  color: $--color-1;
+  font-size: 1rem;
+  font-family: $--main-font;
+}
+
+input {
+  width: 100%;
+  padding: 1rem;
+}
+
+button {
+  background-color: $--color-2;
+  min-width: 100px;
+  color: $--color-white;
+  transition: $--default-transition;
+  cursor: pointer;
+  &:hover {
+    background-color: $--color-white;
+    color: $--color-2;
   }
 }

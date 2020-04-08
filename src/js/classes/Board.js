@@ -10,11 +10,13 @@ export default class Board {
     this.headerInfoElement = document.querySelector('.header__info')
     this.attemptsElement = null
     this.achievementsElement = null
+    this.timeElement = null
     this.cards = this.generateCards()
     this.resetBoard()
     this.drawBoard()
     this.createAttemptsBox()
     this.createAchievementsBox()
+    this.createTimeBox()
   }
 
   generateCards () {
@@ -53,6 +55,14 @@ export default class Board {
     this.headerInfoElement.appendChild(this.achievementsElement)
   }
 
+  createTimeBox () {
+    if (!this.headerInfoElement) return
+    this.timeElement = document.createElement('div')
+    this.timeElement.id = 'time'
+    this.timeElement.classList.add('header__time')
+    this.headerInfoElement.appendChild(this.timeElement)
+  }
+
   setAttempts (attempts) {
     if (!this.attemptsElement) return
     this.attemptsElement.innerHTML = attempts
@@ -61,6 +71,11 @@ export default class Board {
   setAchievements (achievements) {
     if (!this.achievementsElement) return
     this.achievementsElement.innerHTML = achievements
+  }
+
+  setTime (time) {
+    if (!this.timeElement) return
+    this.timeElement.innerHTML = time
   }
 
   lockBoard () {
@@ -72,7 +87,7 @@ export default class Board {
   }
 
   boardFinished () {
-    this.domElement.classList.add('animated', 'flash', 'delay-1s')
+    this.domElement.classList.add('animated', 'tada', 'delay-1s')
     setTimeout(() => document.querySelector('body').classList.add('show-results'), 2500)
   }
 }

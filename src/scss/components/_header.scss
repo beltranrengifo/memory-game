@@ -6,7 +6,7 @@
   align-items: center;
   &__title {
     font-size: 1rem;
-    font-weight: 100;
+    font-weight: 700;
     position: relative;
   }
   &__info {
@@ -26,6 +26,11 @@
   &__achievements {
     &:before {
       content: 'Achievements: ';
+    }
+  }
+  &__time {
+    &:before {
+      content: 'Time: ';
     }
   }
 }

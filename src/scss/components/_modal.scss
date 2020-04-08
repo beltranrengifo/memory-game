@@ -1,0 +1,135 @@
+.modal {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+    pointer-events: none;
+    transition: all .6s ease-out;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &--visible {
+      background-color: $--color-overlay;
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
+      pointer-events: all;
+    }
+  }
+  &__body {
+    width: 500px;
+    max-width: 100%;
+    min-height: 220px;
+    background-color: $--color-white;
+    border-radius: 12px;
+    box-shadow: $--modal-shadow;
+    padding: 24px;
+    transform: translateY(-50%);
+    position: relative;
+  }
+  &__loader {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: $--color-white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  &__row {
+    margin: 8px 0;
+    &--total {
+      border-top: 2px dotted $--color-5;
+      padding-top: 12px;
+    }
+  }
+  &__result {
+    $--size: 40px;
+    margin-left: 16px;
+    display: inline-block;
+    min-width: $--size;
+    min-height: $--size;
+    text-align: center;
+    line-height: $--size;
+    font-size: 1.4rem;
+    font-weight: 700;
+    padding: 0 4px;
+    &--total {
+      font-size: 1.6rem;
+      border-radius: 12px;
+      background-color: $--color-5;
+      color: $--color-white;
+    }
+  }
+  &__ranking-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  &__footer {
+    margin-top: 48px;
+    text-align: right;
+  }
+  &__levels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 24px;
+    .levels__level {
+      width: calc(50% - 8px);
+      margin: 8px 4px;
+      &:hover {
+        background-color: $--color-white;
+      }
+      &--easier {
+        background-color: lighten($--color-3, 10%);
+        border-color: lighten($--color-3, 10%);
+        &:hover {
+          color: lighten($--color-3, 10%);
+        }
+      }
+      &--easy {
+        background-color: darken($--color-3, 10%);
+        border-color: darken($--color-3, 10%);
+        &:hover {
+          color: darken($--color-3, 10%);
+        }
+      }
+      &--medium {
+        background-color: darken($--color-4, 10%);
+        border-color: darken($--color-4, 10%);
+        &:hover {
+          color: darken($--color-4, 10%);
+        }
+      }
+      &--hard {
+        background-color: $--color-5;
+        border-color: $--color-5;
+        &:hover {
+          color: $--color-5;
+        }
+      }
+      &--hardest {
+        background-color: darken($--color-5, 20%);
+        border-color: darken($--color-5, 20%);
+        &:hover {
+          color: darken($--color-5, 20%);
+        }
+      }
+    }
+  }
+}

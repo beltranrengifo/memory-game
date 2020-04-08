@@ -1,12 +1,14 @@
 import Board from '@/js/classes/Board'
 import Modal from '@/js/classes/Modal'
 import { finishGame } from '@/js/utils/modal-templates'
-// import { database } from '@/js/utils/database'
+import { database } from '@/js/utils/database'
+import { init } from '@/js/main'
 
 export default class Game {
   constructor (config) {
     this.config = config
     this.board = new Board(this)
+    this.modal = new Modal()
     this.pickedCards = []
     this.attempts = 0
     this.achievements = 0
@@ -80,16 +82,23 @@ export default class Game {
     this.board.boardFinished()
     this.paused = true
     clearInterval(this.chronoInterval)
-    const gameFinishedModal = new Modal()
-    gameFinishedModal.setContent(finishGame({
-      attempts: this.attempts,
-      time: this.time,
-      level: this.config.level,
-      total: this.calculateTotalResult()
-    })
-    )
+    this.getRanking()
+      .then(data => {
+        this.modal.setContent(
+          finishGame({
+            attempts: this.attempts,
+            time: this.time,
+            level: this.board.levels[this.config.level],
+            total: this.calculateTotalResult(),
+            ranking: data
+          })
+        )
+        const playAgainButton = this.modal.modalBody.querySelector('#play-again')
+        playAgainButton.addEventListener('click', () => this.createNewGame())
+      })
+    this.saveGameData()
     setTimeout(() => {
-      gameFinishedModal.showModal()
+      this.modal.showModal()
     }, 2500)
   }
 
@@ -103,13 +112,38 @@ export default class Game {
   }
 
   calculateTotalResult () {
-    return this.attempts * this.time / this.config.level
+    return ((this.config.level * 50) - (this.attempts + this.time)) * 10
   }
 
-  saveGame () {
-    /* const data = {
-      user: 'pepe'
-    }
-    database.ref().push(data) */
+  saveGameData () {
+    database.ref().push({
+      user: this.config.user,
+      userLocation: this.config.userLocation,
+      level: this.config.level,
+      attempts: this.attempts,
+      time: this.time,
+      total: this.calculateTotalResult()
+    })
+  }
+
+  getRanking () {
+    return new Promise(resolve => {
+      database.ref().once('value', data => {
+        const list = data.val()
+        /* let str = ''
+         for (const item in list) {
+          let itemHtml = '<li class="modal__ranking-list-item">'
+          itemHtml += '</li>'
+          str += itemHtml
+        } */
+        resolve(list)
+      })
+    })
+  }
+
+  createNewGame () {
+    this.modal.destroyModal()
+    this.board.cleanBoard()
+    init()
   }
 }

@@ -5,6 +5,7 @@ const finishGame = results => (`
     <div class="modal__results">
       <h2 class="modal__title">
         Great game!
+        <span id="play-again" class="button">Play again</span>
       </h2>
       <div class="modal__row">
         Attemps: <span class="modal__result">${results.attempts}</span>
@@ -13,7 +14,7 @@ const finishGame = results => (`
         Time: <span class="modal__result">${results.time}</span>
       </div>
       <div class="modal__row">
-        Level: <span class="modal__result">${results.level}</span>
+        Level: <span class="modal__result">${capitalize(results.level)}</span>
       </div>
       <div class="modal__row modal__row--total">
         Total: <span class="modal__result modal__result--total">${results.total}</span>
@@ -23,6 +24,7 @@ const finishGame = results => (`
       <div class="modal__row modal__row--ranking">
         <h3 class="modal__ranking-title">Ranking</h3>
       </div>
+      <div>${JSON.stringify(results.ranking)}</div>
     </div>
   </div>
 `)

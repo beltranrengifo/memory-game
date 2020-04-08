@@ -26,11 +26,12 @@
     width: 500px;
     max-width: 100%;
     min-height: 220px;
+    max-height: 90vh;
+    overflow-y: scroll;
     background-color: $--color-white;
     border-radius: 12px;
     box-shadow: $--modal-shadow;
     padding: 24px;
-    transform: translateY(-50%);
     position: relative;
   }
   &__loader {
@@ -50,6 +51,23 @@
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    #play-again {
+      font-size: 1rem;
+      background: $--color-2;
+      color: $--color-4;
+      border: 1px solid $--color-2;
+      transition: $--default-transition;
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      &:hover {
+        background: $--color-white;
+        color: $--color-2;
+      }
+    }
   }
   &__row {
     margin: 8px 0;
@@ -75,6 +93,9 @@
       background-color: $--color-5;
       color: $--color-white;
     }
+  }
+  &__ranking {
+    margin-top: 60px;
   }
   &__ranking-title {
     font-size: 1.6rem;

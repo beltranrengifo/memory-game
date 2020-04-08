@@ -8,7 +8,7 @@ export default class Board {
     this.game = game
     this.level = game.config.level
     this.levels = {
-      2: 'easier',
+      2: 'easiest',
       3: 'easy',
       4: 'medium',
       5: 'hard',
@@ -107,5 +107,14 @@ export default class Board {
   boardFinished () {
     this.domElement.classList.add('animated', 'tada', 'delay-1s')
     setTimeout(() => document.querySelector('body').classList.add('show-results'), 2500)
+  }
+
+  cleanBoard () {
+    this.domElement.innerHTML = ''
+    this.domElement.classList = ['main__board']
+    this.attemptsElement.remove()
+    this.achievementsElement.remove()
+    this.timeElement.remove()
+    this.levelElement.remove()
   }
 }

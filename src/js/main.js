@@ -7,6 +7,10 @@ import Setup from '@/js/classes/Setup'
 import Game from '@/js/classes/Game'
 
 window.onload = () => {
+  init()
+}
+
+const init = () => {
   const setup = new Setup()
   setup.getUser()
     .then(() => setup.getUserLocation())
@@ -20,4 +24,8 @@ window.onload = () => {
         level: config.level
       })
     })
+}
+
+export {
+  init
 }

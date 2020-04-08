@@ -17,9 +17,14 @@ export default class Setup {
       this.modal.setContent(getUser())
       const button = this.modal.modalBody.querySelector('#user-modal .button')
       button.addEventListener('click', () => {
-        this.user = this.modal.modalBody.querySelector('#input-user').value
-        this.modal.deleteContent()
-        resolve(this.user)
+        const value = this.modal.modalBody.querySelector('#input-user').value
+        if (value) {
+          this.user = this.modal.modalBody.querySelector('#input-user').value
+          this.modal.deleteContent()
+          resolve(this.user)
+        } else {
+          button.innerText = 'Please, type your name'
+        }
       })
     })
   }
@@ -48,6 +53,7 @@ export default class Setup {
               error => {
                 this.userLocation = false
                 console.log(error)
+                resolve(this.userLocation)
               }
             )
           } else {
@@ -60,7 +66,7 @@ export default class Setup {
 
   getGameLevel () {
     return new Promise(resolve => {
-      this.modal.setContent(getGameLevel())
+      this.modal.setContent(getGameLevel(this.user, this.userLocation && this.userLocation.geocode.address.city))
       const buttons = this.modal.modalBody.querySelectorAll('#level-modal button.levels__level')
       Array.from(buttons).forEach(button => {
         button.addEventListener('click', event => {

@@ -1,3 +1,5 @@
+import { capitalize } from '@/js/utils/functions'
+
 const finishGame = results => (`
   <div class="modal__body-wrap">
     <div class="modal__results">
@@ -40,7 +42,8 @@ const getUser = () => (`
         placeholder="Your name">
     </div>
     <div class="modal__footer">
-      <button class="button">
+      <button
+        class="button">
         Next
       </button>
     </div>
@@ -72,12 +75,12 @@ const getLocation = () => (`
   </div>
 `)
 
-const getGameLevel = () => (`
+const getGameLevel = (user, city) => (`
   <div
     id="level-modal"
     class="modal__body-wrap">
     <h2 class="modal__title">
-      Choose level!
+      Hi, ${capitalize(user)} ${city ? 'from ' + city + ',' : ''} please choose your level!
     </h2>
     <div class="modal__row">
       Higher levels give higher ranks!

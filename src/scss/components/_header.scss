@@ -8,6 +8,33 @@
     font-size: 1rem;
     font-weight: 700;
     position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  &__level {
+    align-self: center;
+    padding: 4px 6px 2px;
+    font-size: .8rem;
+    margin-top: 4px;
+    border-radius: 4px;
+    color: $--color-white;
+    font-weight: 400;
+    &--easier {
+      background-color: lighten($--color-3, 10%);
+    }
+    &--easy {
+      background-color: darken($--color-3, 10%);
+    }
+    &--medium {
+      background-color: darken($--color-4, 10%);
+      color: $--color-2;
+    }
+    &--hard {
+      background-color: $--color-5;
+    }
+    &--hardest {
+      background-color: darken($--color-5, 20%);
+    }
   }
   &__info {
     display: flex;

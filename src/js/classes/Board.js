@@ -1,22 +1,31 @@
 import brands from '@/js/lib/brands'
 import _ from 'lodash'
 import Card from '@/js/classes/Card'
+import { capitalize } from '@/js/utils/functions'
 
 export default class Board {
   constructor (game) {
     this.game = game
     this.level = game.config.level
+    this.levels = {
+      2: 'easier',
+      3: 'easy',
+      4: 'medium',
+      5: 'hard',
+      6: 'hardest'
+    }
     this.domElement = document.getElementById(game.config.element)
     this.headerInfoElement = document.querySelector('.header__info')
+    this.headerTitleElement = document.querySelector('.header__title')
     this.attemptsElement = null
     this.achievementsElement = null
-    this.timeElement = null
     this.cards = this.generateCards()
     this.resetBoard()
     this.drawBoard()
     this.createAttemptsBox()
     this.createAchievementsBox()
     this.createTimeBox()
+    this.createLevelBox()
   }
 
   generateCards () {
@@ -61,6 +70,15 @@ export default class Board {
     this.timeElement.id = 'time'
     this.timeElement.classList.add('header__time')
     this.headerInfoElement.appendChild(this.timeElement)
+  }
+
+  createLevelBox () {
+    if (!this.headerTitleElement) return
+    this.levelElement = document.createElement('div')
+    this.levelElement.id = 'level'
+    this.levelElement.classList.add('header__level', `header__level--${this.levels[this.level]}`)
+    this.levelElement.innerText = capitalize(this.levels[this.level])
+    this.headerTitleElement.appendChild(this.levelElement)
   }
 
   setAttempts (attempts) {

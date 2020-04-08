@@ -36,4 +36,8 @@ button {
     background-color: $--color-white;
     color: $--color-2;
   }
+  &.disabled {
+    pointer-events: none;
+    opacity: .5;
+  }
 }

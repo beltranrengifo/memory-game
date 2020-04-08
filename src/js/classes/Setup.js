@@ -21,7 +21,7 @@ export default class Setup {
         if (value) {
           this.user = this.modal.modalBody.querySelector('#input-user').value
           this.modal.deleteContent()
-          resolve(this.user)
+          resolve()
         } else {
           button.innerText = 'Please, type your name'
         }
@@ -47,7 +47,7 @@ export default class Setup {
                       geocode: data.data
                     }
                     this.modal.hideLoader()
-                    resolve(this.userLocation)
+                    resolve()
                   })
               },
               error => {
@@ -58,6 +58,7 @@ export default class Setup {
             )
           } else {
             this.userLocation = false
+            resolve()
           }
         })
       })

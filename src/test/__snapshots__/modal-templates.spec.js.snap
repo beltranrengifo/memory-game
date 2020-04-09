@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`finishGame template getUser should match snapshot 1`] = `
+"
+  <div class=\\"modal__body-wrap\\">
+    <div class=\\"modal__results\\">
+      <h2 class=\\"modal__title\\">
+        Great game!
+        <span id=\\"play-again\\" class=\\"button\\">Play again</span>
+      </h2>
+      <div class=\\"modal__row\\">
+        Attemps: <span class=\\"modal__result\\">10</span>
+      </div>
+      <div class=\\"modal__row\\">
+        Time: <span class=\\"modal__result\\">15</span>
+      </div>
+      <div class=\\"modal__row\\">
+        Level: <span class=\\"modal__result\\">5</span>
+      </div>
+      <div class=\\"modal__row modal__row--total\\">
+        Total: <span class=\\"modal__result modal__result--total rubberBand animated infinite\\">1000.000</span> points!
+      </div>
+    </div>
+    <div class=\\"modal__ranking\\">
+      <div class=\\"modal__row modal__row--ranking\\">
+        <h3 class=\\"modal__ranking-title\\">Ranking</h3>
+        <table class=\\"table table--ranking\\">
+          <h1>Ranking</h1>
+        </table>
+      </div>
+    </div>
+  </div>
+"
+`;
+
+exports[`getGameLevel template getGameLevel should match snapshot 1`] = `
+"
+  <div
+    id=\\"level-modal\\"
+    class=\\"modal__body-wrap\\">
+    <h2 class=\\"modal__title\\">
+      Hi, Pepe from Soria, please choose your level!
+    </h2>
+    <div class=\\"modal__row\\">
+      Higher levels give higher ranks!
+    </div>
+    <div class=\\"modal__row\\">
+      <div class=\\"modal__levels\\">
+        <button class=\\"levels__level levels__level--easier\\" value=\\"2\\">Easier</button>
+        <button class=\\"levels__level levels__level--easy\\" value=\\"3\\">Easy</button>
+        <button class=\\"levels__level levels__level--medium\\" value=\\"4\\">Medium</button>
+        <button class=\\"levels__level levels__level--hard\\" value=\\"5\\">Hard</button>
+        <button class=\\"levels__level levels__level--hardest\\" value=\\"6\\">Hardest</button>
+      </div>
+    </div>
+  </div>
+"
+`;
+
+exports[`getGameLevel template getGameLevel without city should match snapshot 1`] = `
+"
+  <div
+    id=\\"level-modal\\"
+    class=\\"modal__body-wrap\\">
+    <h2 class=\\"modal__title\\">
+      Hi, Pepe  please choose your level!
+    </h2>
+    <div class=\\"modal__row\\">
+      Higher levels give higher ranks!
+    </div>
+    <div class=\\"modal__row\\">
+      <div class=\\"modal__levels\\">
+        <button class=\\"levels__level levels__level--easier\\" value=\\"2\\">Easier</button>
+        <button class=\\"levels__level levels__level--easy\\" value=\\"3\\">Easy</button>
+        <button class=\\"levels__level levels__level--medium\\" value=\\"4\\">Medium</button>
+        <button class=\\"levels__level levels__level--hard\\" value=\\"5\\">Hard</button>
+        <button class=\\"levels__level levels__level--hardest\\" value=\\"6\\">Hardest</button>
+      </div>
+    </div>
+  </div>
+"
+`;
+
+exports[`getLocation template getLocation should match snapshot 1`] = `
+"
+  <div
+    id=\\"location-modal\\"
+    class=\\"modal__body-wrap\\">
+    <h2 class=\\"modal__title\\">
+      Geolocation API!
+    </h2>
+    <div class=\\"modal__row\\">
+      We collect your location, just for educational purposes
+    </div>
+    <div class=\\"modal__footer\\">
+      <button
+        value=\\"true\\"
+        class=\\"button\\">
+        Ok
+      </button>
+      <button
+        value=\\"true\\"
+        class=\\"button\\">
+        No
+      </button>
+    </div>
+  </div>
+"
+`;
+
+exports[`getRankingTable template getRankingTable should match snapshot 1`] = `
+"
+    <thead class=\\"table__header\\">
+      
+    <tr>
+      <th>User</th>
+      <th>Location</th>
+      <th>Level</th>
+      <th>Attempts</th>
+      <th>Time</th>
+      <th>Total</th>
+    </tr>
+  
+    </thead>
+    <tbody class=\\"table__body\\">
+      <tr class=\\"table__row top-five\\"><td class=\\"table__item table__item--user\\"><span class=\\"table__item-position\\">1. </span></td><td class=\\"table__item table__item--location\\">Soria</td><td class=\\"table__item table__item--level\\">Hard</td><td class=\\"table__item table__item--attempts\\">10</td><td class=\\"table__item table__item--time\\">55s</td><td class=\\"table__item table__item--total\\">100.000</td></tr>
+    </tbody>
+  "
+`;
+
+exports[`getUser template getUser should match snapshot 1`] = `
+"
+  <div
+    id=\\"user-modal\\"
+    class=\\"modal__body-wrap\\">
+    <h2 class=\\"modal__title\\">
+      Hi there!
+    </h2>
+    <div class=\\"modal__row\\">
+      <input
+        class=\\"input\\"
+        name=\\"user\\"
+        id=\\"input-user\\"
+        placeholder=\\"Your name\\">
+    </div>
+    <div class=\\"modal__footer\\">
+      <button
+        class=\\"button\\">
+        Next
+      </button>
+    </div>
+  </div>
+"
+`;

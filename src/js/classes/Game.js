@@ -46,7 +46,6 @@ export default class Game {
         this.achievements++
         this.board.setAchievements(this.achievements)
         this.setCardsClasses(['blocked', 'animated', 'bounce'])
-
         if (this.checkIfWin()) {
           this.gameFinished()
         }
@@ -113,7 +112,7 @@ export default class Game {
   }
 
   calculateTotalResult () {
-    return ((this.config.level * 50) - (this.attempts + this.time)) * 10
+    return ((this.config.level * 75) - (this.attempts * 1.3 + (this.time * 1.1)))
   }
 
   saveGameData () {

@@ -1,7 +1,7 @@
 .table {
   width: 100%;
   &__header {
-    background: $--color-3;
+    background: $--color-2;
     color: $--color-white;
     height: 32px;
     line-height: 32px;
@@ -19,9 +19,6 @@
   }
   &__row {
     height: 16px;
-    /* &.top-five:first-child {
-      height: 24px;
-    } */
     td {
       vertical-align: middle;
     }

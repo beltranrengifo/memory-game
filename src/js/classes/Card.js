@@ -1,5 +1,5 @@
 import { capitalize, deKebabCase } from '@/js/utils/functions'
-import onesait from '@/js/lib/onesait'
+import { belt } from '@/js/utils/belt'
 export default class Card {
   constructor (name, game) {
     this.name = name
@@ -28,8 +28,8 @@ export default class Card {
     cardElBack.classList.add('card__back')
 
     const cardElBackLogo = document.createElement('span')
-    cardElBackLogo.classList.add('card__onesait')
-    cardElBackLogo.innerHTML = onesait
+    cardElBackLogo.classList.add('card__belt')
+    cardElBackLogo.innerHTML = belt
     cardElBack.appendChild(cardElBackLogo)
 
     cardElWrap.appendChild(cardElFront)

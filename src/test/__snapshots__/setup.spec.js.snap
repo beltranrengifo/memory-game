@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getGameConfig method Setup getGameConfig should match snapshot 1`] = `
+Object {
+  "level": null,
+  "user": null,
+  "userLocation": null,
+}
+`;

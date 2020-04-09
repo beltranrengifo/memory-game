@@ -5,9 +5,11 @@ import '@fortawesome/fontawesome-pro/css/all.min.css'
 import 'animate.css/animate.min.css'
 import Setup from '@/js/classes/Setup'
 import Game from '@/js/classes/Game'
+import { setBrowserInDom } from '@/js/utils/browsers'
 
 window.onload = () => {
   init()
+  setBrowserInDom()
 }
 
 const init = () => {

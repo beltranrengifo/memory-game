@@ -4,14 +4,16 @@ module.exports = {
   rootDir: 'src',
   moduleFileExtensions: ['js'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1'
+    '^@/(.*)$': '<rootDir>/$1',
+    '^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub'
   },
   transform: {
-    '^.+\\.js$': 'babel-jest'
+    '^.+\\.js$': 'babel-jest',
+    '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub'
   },
   testRegex: '\\.spec\\.js$',
   testPathIgnorePatterns: [
-    '<rootDir>/js/lib/'
+    // '<rootDir>/js/lib/'
   ],
   coverageDirectory: path.resolve(__dirname, 'reports/unit/coverage'),
   collectCoverageFrom: [

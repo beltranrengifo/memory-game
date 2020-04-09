@@ -1,4 +1,4 @@
-import brands from '@/js/lib/brands'
+import { brands } from '@/js/utils/brands'
 import _ from 'lodash'
 import Card from '@/js/classes/Card'
 import { capitalize } from '@/js/utils/functions'
@@ -112,9 +112,9 @@ export default class Board {
   cleanBoard () {
     this.domElement.innerHTML = ''
     this.domElement.classList = ['main__board']
-    this.attemptsElement.remove()
-    this.achievementsElement.remove()
-    this.timeElement.remove()
-    this.levelElement.remove()
+    this.attemptsElement && this.attemptsElement.remove()
+    this.achievementsElement && this.achievementsElement.remove()
+    this.timeElement && this.timeElement.remove()
+    this.levelElement && this.levelElement.remove()
   }
 }

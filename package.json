@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beltranrengifo/onesait-memory-game.git"
+    "url": "git+https://github.com/beltranrengifo/memory-game.git"
   },
   "keywords": [
     "webpack",
@@ -24,7 +24,7 @@
   "author": "beltranrengifo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/beltranrengifo/onesait-memory-game.git"
+    "url": "https://github.com/beltranrengifo/memory-game.git"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -47,6 +47,7 @@
     "file-loader": "^5.1.0",
     "html-webpack-plugin": "^4.0.0-beta.11",
     "jest": "^25.2.7",
+    "jest-transform-stub": "^2.0.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",

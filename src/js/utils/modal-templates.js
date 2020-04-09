@@ -17,7 +17,7 @@ const finishGame = results => (`
         Level: <span class="modal__result">${capitalize(results.level)}</span>
       </div>
       <div class="modal__row modal__row--total">
-        Total: <span class="modal__result modal__result--total">${results.total}</span>
+        Total: <span class="modal__result modal__result--total rubberBand animated infinite">${results.total.toFixed(3)}</span> points!
       </div>
     </div>
     <div class="modal__ranking">
@@ -32,7 +32,6 @@ const finishGame = results => (`
 `)
 
 const getRankingTable = (list, levels) => {
-  console.log(list)
   const header = `
     <tr>
       <th>User</th>
@@ -50,25 +49,12 @@ const getRankingTable = (list, levels) => {
     el += `<td class="table__item table__item--location">${item.userLocation && item.userLocation.geocode.address.city}</td>`
     el += `<td class="table__item table__item--level">${capitalize(levels[item.level])}</td>`
     el += `<td class="table__item table__item--attempts">${item.attempts}</td>`
-    el += `<td class="table__item table__item--time">${item.time}</td>`
-    el += `<td class="table__item table__item--total">${item.total}</td>`
+    el += `<td class="table__item table__item--time">${item.time}s</td>`
+    el += `<td class="table__item table__item--total">${item.total.toFixed(3)}</td>`
     el += '</tr>'
     str += el
     return str
   }, '')
-
-  /* const rows = list.reduce((str, item, i, a) => {
-    let el = `<li class="modal__ranking-list-item ${i < 5 ? 'top-five' : i >= a.length - 5 ? 'last-five' : ''}">`
-    el += `<span class="list-item list-item--user">${item.user}</span>`
-    el += `<span class="list-item list-item--location">${item.userLocation && item.userLocation.geocode.address.city}</span>`
-    el += `<span class="list-item list-item--level">${capitalize(levels[item.level])}</span>`
-    el += `<span class="list-item list-item--attempts">${item.attempts}</span>`
-    el += `<span class="list-item list-item--time">${item.time}</span>`
-    el += `<span class="list-item list-item--total">${item.total}</span>`
-    el += '</li>'
-    str += el
-    return str
-  }, '') */
 
   return `
     <thead class="table__header">

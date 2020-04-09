@@ -21,7 +21,7 @@ export default class Setup {
         if (value) {
           this.user = this.modal.modalBody.querySelector('#input-user').value
           this.modal.deleteContent()
-          resolve()
+          resolve(this.user)
         } else {
           button.innerText = 'Please, type your name'
         }

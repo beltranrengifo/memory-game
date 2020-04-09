@@ -26,8 +26,8 @@
     width: 500px;
     max-width: 100%;
     min-height: 220px;
-    max-height: 90vh;
-    overflow-y: scroll;
+    max-height: 75vh;
+    overflow-y: hidden;
     background-color: $--color-white;
     border-radius: 12px;
     box-shadow: $--modal-shadow;
@@ -75,6 +75,10 @@
       border-top: 2px dotted $--color-5;
       padding-top: 12px;
     }
+    &--ranking {
+      height: 300px;
+      overflow: scroll;
+    }
   }
   &__result {
     $--size: 40px;
@@ -95,11 +99,12 @@
     }
   }
   &__ranking {
-    margin-top: 60px;
+    margin-top: 40px;
   }
   &__ranking-title {
     font-size: 1.6rem;
     font-weight: 700;
+    margin-bottom: 12px;
   }
   &__footer {
     margin-top: 48px;
@@ -152,5 +157,9 @@
         }
       }
     }
+  }
+  &__ranking-list {}
+  &__ranking-list-item {
+    margin: 8px 0;
   }
 }

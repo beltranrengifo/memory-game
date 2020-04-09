@@ -1,8 +1,9 @@
 import Board from '@/js/classes/Board'
 import Modal from '@/js/classes/Modal'
-import { finishGame } from '@/js/utils/modal-templates'
+import { finishGame, getRankingTable } from '@/js/utils/modal-templates'
 import { database } from '@/js/utils/database'
 import { init } from '@/js/main'
+import _ from 'lodash'
 
 export default class Game {
   constructor (config) {
@@ -129,14 +130,8 @@ export default class Game {
   getRanking () {
     return new Promise(resolve => {
       database.ref().once('value', data => {
-        const list = data.val()
-        /* let str = ''
-         for (const item in list) {
-          let itemHtml = '<li class="modal__ranking-list-item">'
-          itemHtml += '</li>'
-          str += itemHtml
-        } */
-        resolve(list)
+        const list = _.sortBy(data.val(), item => item.total).reverse()
+        resolve(getRankingTable(list, this.board.levels))
       })
     })
   }

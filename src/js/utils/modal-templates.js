@@ -47,7 +47,8 @@ const getRankingTable = (list, levels) => {
     str += `
       <tr class="table__row ${i < 5 ? 'top-five' : i >= a.length - 5 ? 'last-five' : ''}">
         <td class="table__item table__item--user"><span class="table__item-position">${i + 1}. </span>${capitalize(item.user)}</td>
-        <td class="table__item table__item--location">${item.userLocation && item.userLocation.geocode.address.city}</td>
+
+        <td class="table__item table__item--location">${typeof item.userLocation === 'object' && item.userLocation !== undefined ? item.userLocation.geocode.address.city : ' - '}</td>
         <td class="table__item table__item--level">${capitalize(levels[item.level])}</td>
         <td class="table__item table__item--attempts">${item.attempts}</td>
         <td class="table__item table__item--time">${item.time}s</td>
@@ -132,7 +133,7 @@ const getGameLevel = (user, city) => (`
         <button class="levels__level levels__level--medium" value="4">Medium</button>
         <button class="levels__level levels__level--hard" value="5">Hard</button>
         <button class="levels__level levels__level--hardest" value="6">Hardest</button>
-        <button class="levels__level levels__level--hardest" value="15">Crazy</button>
+        <button class="levels__level levels__level--crazy" value="15">Crazy</button>
       </div>
     </div>
   </div>

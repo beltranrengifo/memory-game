@@ -35,6 +35,9 @@
     &--hardest {
       background-color: darken($--color-5, 20%);
     }
+    &--crazy {
+      background-color: darken($--color-5, 40%);
+    }
   }
   &__info {
     display: flex;

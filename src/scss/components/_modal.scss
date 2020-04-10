@@ -159,11 +159,11 @@
           color: darken($--color-5, 20%);
         }
       }
-      &--hardest {
-        background-color: black;
-        border-color: black;
+      &--crazy {
+        background-color: darken($--color-5, 40%);
+        border-color: darken($--color-5, 40%);
         &:hover {
-          color: black;
+          color: darken($--color-5, 40%);
         }
       }
     }

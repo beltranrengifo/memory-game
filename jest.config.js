@@ -21,5 +21,10 @@ module.exports = {
     '!**/node_modules/**',
     '!ignore/**/*.js'
   ],
-  verbose: true
+  verbose: true,
+  coverageReporters: [
+    'json-summary',
+    'text',
+    'lcov'
+  ]
 }

@@ -1,6 +1,11 @@
 # Javascript Memory Game
 
 [![Dependabot badge](https://flat.badgen.net/dependabot/wbkd/webpack-starter?icon=dependabot)](https://dependabot.com/)
+![Branches badge](./reports/unit/coverage/badges/badge-branches.svg)
+![Functions badge](./reports/unit/coverage/badges/badge-functions.svg)
+![Lines badge](./reports/unit/coverage/badges/badge-lines.svg)
+![Statements badge](./reports/unit/coverage/badges/badge-statements.svg)
+
 
 Webpack based, Javascript ES6/ES7 small game.
 
@@ -30,11 +35,14 @@ yarn build
 
 ```
 npm run unit
-yarn unit
 npm run unit:only
-yarn unit:only
 npm run unit:watch
+npm run unit::badges
+
+yarn unit
+yarn unit:only
 yarn unit:watch
+yarn unit::badges
 ```
 
 ### Features:

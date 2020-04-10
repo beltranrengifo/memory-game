@@ -84,6 +84,7 @@ export default class Game {
     clearInterval(this.chronoInterval)
     this.getRanking()
       .then(data => {
+        console.log('hi')
         this.modal.setContent(
           finishGame({
             attempts: this.attempts,

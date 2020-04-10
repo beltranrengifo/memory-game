@@ -1,6 +1,7 @@
 import Game from '../js/classes/Game'
 import Board from '../js/classes/Board'
 import Modal from '../js/classes/Modal'
+import { finishGame } from '../js/utils/modal-templates'
 
 describe('Game class', () => {
   let gameConfig = {}
@@ -12,7 +13,9 @@ describe('Game class', () => {
   beforeEach(() => {
     gameConfig = {
       element: 'main-board',
-      level: 6
+      level: 6,
+      user: 'John',
+      userLocation: false
     }
     // eslint-disable-next-line no-unused-vars
     game = new Game(gameConfig)
@@ -117,8 +120,18 @@ describe('Game class', () => {
     expect(game.checkIfWin()).toBe(false)
   })
 
+  test('gameFinished should be called if win', () => {
+    const newGame = new Game(gameConfig)
+    newGame.gameFinished = jest.fn()
+    newGame.checkIfWin = () => true
+    newGame.cardClickHandler(event, 'twitter')
+    newGame.cardClickHandler(event, 'twitter')
+    expect(newGame.gameFinished).toHaveBeenCalled()
+  })
+
   test('getRanking return data', () => {
     // eslint-disable-next-line jest/valid-expect-in-promise
+    game.getRanking = () => new Promise((resolve, reject) => resolve({}))
     game.getRanking().then(data => expect(data).toBeDefined())
   })
 
@@ -154,6 +167,60 @@ describe('Game class', () => {
     game.removeCardsClasses(['class'])
     game.pickedCards.forEach(e => {
       setTimeout(() => expect(e.card.classList.contains('class')).toBe(false), 800)
+    })
+  })
+
+  test('gameFinished should pause the timer', () => {
+    game.gameFinished()
+    expect(game.paused).toBe(true)
+  })
+
+  test('gameFinished should call boardFinished', () => {
+    const spy = jest.spyOn(game.board, 'boardFinished')
+    game.gameFinished()
+    expect(spy).toHaveBeenCalled()
+  })
+
+  test('gameFinished should call saveGameData', () => {
+    game.saveGameData = jest.fn()
+    game.gameFinished()
+    expect(game.saveGameData).toHaveBeenCalled()
+  })
+
+  test('gameFinished should call modal.showModal', () => {
+    game.modal.showModal = jest.fn()
+    game.gameFinished()
+    setTimeout(() => {
+      expect(game.modal.showModal).toHaveBeenCalled()
+    }, 2500)
+  })
+
+  test('playAgainButton should empty modal', () => {
+    game.modal.setContent(
+      finishGame({
+        attempts: 10,
+        time: 100,
+        level: 5,
+        total: 1500,
+        ranking: false
+      })
+    )
+    const button = game.modal.modalBody.querySelector('#play-again')
+    button.click()
+    setTimeout(() => expect(game.modal.modalBody.innerHTML).toBeFalsy(), 800)
+  })
+
+  test('chronometer should create the interval', () => {
+    game.chronometer()
+    expect(game.chronoInterval).toBeTruthy()
+  })
+
+  test('chronometer should check if is paused', () => {
+    const spy = jest.spyOn(game.board, 'setTime')
+    game.chronometer()
+    game.paused = false
+    setTimeout(() => {
+      expect(spy).toHaveBeenCalled()
     })
   })
 })

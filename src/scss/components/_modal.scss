@@ -159,6 +159,13 @@
           color: darken($--color-5, 20%);
         }
       }
+      &--hardest {
+        background-color: black;
+        border-color: black;
+        &:hover {
+          color: black;
+        }
+      }
     }
   }
   &__ranking-list-item {

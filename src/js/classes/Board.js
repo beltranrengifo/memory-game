@@ -12,7 +12,8 @@ export default class Board {
       3: 'easy',
       4: 'medium',
       5: 'hard',
-      6: 'hardest'
+      6: 'hardest',
+      15: 'crazy'
     }
     this.domElement = document.getElementById(game.config.element)
     this.headerInfoElement = document.querySelector('.header__info')

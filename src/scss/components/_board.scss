@@ -21,6 +21,16 @@
     &--24 {
       grid-template-columns: repeat(6, 1fr);
     }
+    &--60 {
+      width: 100%;
+      grid-template-columns: repeat(10, 1fr);
+      .card__belt svg {
+        width: 40px;
+      }
+      .card__brand {
+        font-size: 70px;
+      }
+    }
     &--locked {
       pointer-events: none;
     }

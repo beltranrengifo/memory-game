@@ -132,6 +132,7 @@ const getGameLevel = (user, city) => (`
         <button class="levels__level levels__level--medium" value="4">Medium</button>
         <button class="levels__level levels__level--hard" value="5">Hard</button>
         <button class="levels__level levels__level--hardest" value="6">Hardest</button>
+        <button class="levels__level levels__level--hardest" value="15">Crazy</button>
       </div>
     </div>
   </div>

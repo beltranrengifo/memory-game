@@ -23,7 +23,7 @@ const init = () => {
         element: 'main-board',
         user: config.user,
         userLocation: config.userLocation,
-        level: config.level
+        level: 15
       })
     })
 }

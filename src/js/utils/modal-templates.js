@@ -17,7 +17,7 @@ const finishGame = results => (`
         Level: <span class="modal__result">${capitalize(results.level)}</span>
       </div>
       <div class="modal__row modal__row--total">
-        Total: <span class="modal__result modal__result--total rubberBand animated infinite">${results.total.toFixed(3)}</span> points!
+        Total: <span class="modal__result modal__result--total rubberBand animated infinite">${results.total.toFixed(2)}</span> points!
       </div>
     </div>
     <div class="modal__ranking">
@@ -44,15 +44,16 @@ const getRankingTable = (list, levels) => {
   `
 
   const rows = list.reduce((str, item, i, a) => {
-    let el = `<tr class="table__row ${i < 5 ? 'top-five' : i >= a.length - 5 ? 'last-five' : ''}">`
-    el += `<td class="table__item table__item--user"><span class="table__item-position">${i + 1}. </span>${capitalize(item.user)}</td>`
-    el += `<td class="table__item table__item--location">${item.userLocation && item.userLocation.geocode.address.city}</td>`
-    el += `<td class="table__item table__item--level">${capitalize(levels[item.level])}</td>`
-    el += `<td class="table__item table__item--attempts">${item.attempts}</td>`
-    el += `<td class="table__item table__item--time">${item.time}s</td>`
-    el += `<td class="table__item table__item--total">${item.total.toFixed(3)}</td>`
-    el += '</tr>'
-    str += el
+    str += `
+      <tr class="table__row ${i < 5 ? 'top-five' : i >= a.length - 5 ? 'last-five' : ''}">
+        <td class="table__item table__item--user"><span class="table__item-position">${i + 1}. </span>${capitalize(item.user)}</td>
+        <td class="table__item table__item--location">${item.userLocation && item.userLocation.geocode.address.city}</td>
+        <td class="table__item table__item--level">${capitalize(levels[item.level])}</td>
+        <td class="table__item table__item--attempts">${item.attempts}</td>
+        <td class="table__item table__item--time">${item.time}s</td>
+        <td class="table__item table__item--total">${item.total.toFixed(2)}</td>
+      </tr>
+    `
     return str
   }, '')
 
@@ -106,7 +107,7 @@ const getLocation = () => (`
         Ok
       </button>
       <button
-        value="true"
+        value="false"
         class="button">
         No
       </button>

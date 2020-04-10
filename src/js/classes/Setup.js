@@ -35,7 +35,7 @@ export default class Setup {
       const buttons = this.modal.modalBody.querySelectorAll('#location-modal .button')
       Array.from(buttons).forEach(button => {
         button.addEventListener('click', event => {
-          if (event.target.value) {
+          if (event.target.value === 'true') {
             this.modal.showLoader()
             navigator.geolocation.getCurrentPosition(
               position => {

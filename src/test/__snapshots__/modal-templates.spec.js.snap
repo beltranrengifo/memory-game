@@ -18,7 +18,7 @@ exports[`finishGame template getUser should match snapshot 1`] = `
         Level: <span class=\\"modal__result\\">5</span>
       </div>
       <div class=\\"modal__row modal__row--total\\">
-        Total: <span class=\\"modal__result modal__result--total rubberBand animated infinite\\">1000.000</span> points!
+        Total: <span class=\\"modal__result modal__result--total rubberBand animated infinite\\">1000.00</span> points!
       </div>
     </div>
     <div class=\\"modal__ranking\\">
@@ -99,7 +99,7 @@ exports[`getLocation template getLocation should match snapshot 1`] = `
         Ok
       </button>
       <button
-        value=\\"true\\"
+        value=\\"false\\"
         class=\\"button\\">
         No
       </button>
@@ -123,7 +123,16 @@ exports[`getRankingTable template getRankingTable should match snapshot 1`] = `
   
     </thead>
     <tbody class=\\"table__body\\">
-      <tr class=\\"table__row top-five\\"><td class=\\"table__item table__item--user\\"><span class=\\"table__item-position\\">1. </span></td><td class=\\"table__item table__item--location\\">Soria</td><td class=\\"table__item table__item--level\\">Hard</td><td class=\\"table__item table__item--attempts\\">10</td><td class=\\"table__item table__item--time\\">55s</td><td class=\\"table__item table__item--total\\">100.000</td></tr>
+      
+      <tr class=\\"table__row top-five\\">
+        <td class=\\"table__item table__item--user\\"><span class=\\"table__item-position\\">1. </span></td>
+        <td class=\\"table__item table__item--location\\">Soria</td>
+        <td class=\\"table__item table__item--level\\">Hard</td>
+        <td class=\\"table__item table__item--attempts\\">10</td>
+        <td class=\\"table__item table__item--time\\">55s</td>
+        <td class=\\"table__item table__item--total\\">100.00</td>
+      </tr>
+    
     </tbody>
   "
 `;

@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Location fn geolocationUrl should match snapshot 1`] = `"https://eu1.locationiq.com/v1/reverse.php?key=31a0aa2ee4220c&lat=123&lon=123&format=json"`;

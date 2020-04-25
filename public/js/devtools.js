@@ -5,7 +5,7 @@
     debugger
     var end = +new Date()
     if (isNaN(start) || isNaN(end) || end - start > allow) {
-      document.write('<div class="pirates"><h1>Dev tooling? uhm...</h1><p>Try again with devtools closed</p></div>')
+      document.write('<div class="pirates" style="font-family: sans-serif; display: flex; align-items: center; justify-content: center; background: #3caea3; color: white; flex-direction: column; height: calc(100vh - 16px);"><h1>Dev tooling? uhm...</h1><p>Try again with devtools closed</p></div>')
     }
   }
   if (window.attachEvent) {

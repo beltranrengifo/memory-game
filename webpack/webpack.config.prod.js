@@ -13,7 +13,9 @@ module.exports = merge(common, {
     chunkFilename: 'js/[name].[chunkhash:8].chunk.js'
   },
   plugins: [
-    new Webpack.DefinePlugin(envKeys),
+    new Webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
       filename: 'bundle.css'

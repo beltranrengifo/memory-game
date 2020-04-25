@@ -5,7 +5,7 @@
 ![Functions badge](./reports/unit/coverage/badges/badge-functions.svg)
 ![Lines badge](./reports/unit/coverage/badges/badge-lines.svg)
 ![Statements badge](./reports/unit/coverage/badges/badge-statements.svg)
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d65357f6-0b19-4dc9-a460-0c0ec7895685/deploy-status)](https://app.netlify.com/sites/belt-memory-game/deploys)
 
 Webpack based, Javascript ES6/ES7 small game.
 
